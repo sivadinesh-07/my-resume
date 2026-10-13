@@ -5,142 +5,344 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>resume</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            text-align: center;
-            padding: 50px;
+            margin: 0;
+            padding: 0;
             background-color: rgb(181, 180, 180);
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
         }
 
         .main {
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
             text-align: left;
             background-color: white;
-            padding: 60px;
-            
-            border-radius: 20px;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: none;
         }
 
-        .head {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            width: 60%;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 10PX;
-
+        #theme {
+            width: 100%;
         }
 
-        .head a {
-            text-decoration: none;
-            color: black;
+        .img {
+            text-align: center;
+            padding-top: 24px;
         }
 
-        .career {
-
-            margin-bottom: 20PX;
-            padding: 5PX;
-            text-align: justify;
-            line-height: 20px;
-
-
+        .img img {
+            display: block;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto;
         }
 
-        hr {
-            margin-bottom: 20px;
+        .butn {
+            margin-top: 10px;
         }
 
-        .edu {
-
-            margin-bottom: 20PX;
-            padding: 5PX;
-            line-height: 20px;
+        .butn button,
+        .print {
+            border: none;
+            padding: 9px 16px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        .edu_clg {
-            margin-left: 20px;
-            margin-bottom: 10px;
-        }
-
-        .edu_clg ul {
-            margin-left: 20px;
-        }
-
-        .edu_clg h4 {
-            margin-bottom: 10px;
-            color: rgb(87, 86, 86);
-        }
-
-
-        .career h2 {
-            text-transform: capitalize;
+        .butn button {
+            margin: 4px;
         }
 
         .name {
             text-align: center;
-            padding: 20px;
+            padding: 22px 24px 18px;
+        }
+
+        .name h1 {
+            margin-bottom: 12px;
+        }
+
+        .head {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px 28px;
+            width: 100%;
+            padding: 0 28px 18px;
+        }
+
+        .head a {
+            color: inherit;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        .head a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #bdbdbd;
+            margin: 0;
+        }
+
+        .career,
+        .skills,
+        .edu,
+        .work,
+        .projects {
+            padding: 20px 28px;
+        }
+
+        .career {
+            text-align: justify;
+            line-height: 1.6;
         }
 
         .he {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             text-transform: capitalize;
         }
 
-        .pro {
-            margin-left: 20px;
-            margin-bottom: 10px;
+        .skills table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 18px;
         }
 
-        .pro h3 {
+        .skills table th,
+        .skills table td {
+            padding: 10px 12px;
+            border: 1px solid #999;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .skills table th {
+            width: 32%;
+            background-color: black;
+            color: white;
+        }
+
+        .edu {
+            line-height: 1.5;
+        }
+
+        .edu_clg {
+            margin: 0 0 18px;
+        }
+
+        .edu_clg h3 {
             margin-bottom: 5px;
         }
 
-        .pro h4 {
-            margin-bottom: 3px;
+        .edu_clg h4 {
+            margin-bottom: 8px;
+            color: #575656;
+            font-weight: 600;
         }
-        .skills{
-            
+
+        .edu_clg ul {
+            margin-left: 22px;
+            padding-left: 0;
         }
-        .skills table{
-            border-collapse: collapse;
+
+        .edu_clg li {
+            margin-bottom: 5px;
+        }
+
+        .pro {
             margin-bottom: 20px;
-            
-            
         }
-        .skills table th{
-            padding:10px;
-            background-color: black;
-            color: rgb(181, 180, 180);
+
+        .pro h3 {
+            margin-bottom: 6px;
         }
-        .skills table td{
-            padding:10px;
+
+        .pro h4 {
+            margin-bottom: 5px;
         }
-        @page{
-            size: A4;
-            margin: 12mm;
+
+        .pro p {
+            line-height: 1.55;
+            text-align: justify;
+        }
+
+        .cont {
+            margin: 0 auto 20px;
+            text-align: center;
+        }
+
+        .print {
+            margin-top: 4px;
+            margin-bottom: 8px;
+        }
+
+        .dark {
+            background-color: rgb(35, 35, 55);
+            color: white;
+        }
+
+        .light {
+            background-color: white;
+            color: black;
+        }
+
+        .dark .head a {
+            color: white;
+        }
+
+        @media (max-width: 650px) {
+            body {
+                padding: 0;
+            }
+
+            .main {
+                width: 100%;
+                border-radius: 0;
+            }
+
+            .name {
+                padding: 18px 14px;
+            }
+
+            .name h1 {
+                font-size: 26px;
+            }
+
+            .head {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 18px 18px;
+                gap: 10px;
+            }
+
+            .career,
+            .skills,
+            .edu,
+            .work,
+            .projects {
+                padding: 16px 18px;
+            }
+
+            .skills table th,
+            .skills table td {
+                padding: 8px;
+                overflow-wrap: anywhere;
+            }
+        }
+
+        @media print {
+            @page {
+                margin: 8mm;
+            }
+
+            body {
+                padding: 0;
+                margin: 0;
+                background: white;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 10pt;
+            }
+
+            .cont,
+            .img {
+                display: none !important;
+            }
+
+            .main {
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+                overflow: visible;
+            }
+
+            .career,
+            .skills,
+            .edu,
+            .work,
+            .projects {
+                padding: 12px 0;
+            }
+
+            .head {
+                padding: 0 0 12px;
+            }
+
+            hr {
+                margin: 0;
+            }
+
+            .edu_clg,
+            .pro,
+            tr {
+                break-inside: avoid;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+        .cont{
+            margin-top: 30px;
         }
     </style>
 </head>
 
-<body>
+<body id="outer">
+    <div class="cont"><button onclick="" class="print" id="btn"> save as pdf</button>
+        <br>
+        <label style="font-family: 'Times New Roman', Times, serif; font-size: 20px;">save count :</label>
+        <span id="count" style="font-family: 'Times New Roman', Times, serif; font-size: 20px;">00</span>
+    </div>
+    
 
-    <div class="main">
+
+
+    <div class="main" >
+        <div id="theme">
+            
+        <div class="img">
+            <img src="siva.png" alt="" width="150px" height="150px" id="img">
+            <div class="butn">
+                <button id="hide">hide</button>
+                <button id="dark">dark</button>
+            </div>
+        </div>
 
         <div class="name">
             <h1>SIVADINESH R</h1><br>
-            <p>+91 9940375646  |  sivadinesh872@gmail.com</p>
+            <p>+91 9940375646 | sivadinesh872@gmail.com</p>
 
         </div>
         <div class="head">
-            <a href="https://www.linkedin.com/in/sivadinesh-r-a497042a5/?isSelfProfile=true" target="_blank"><i class="fa-brands fa-square-linkedin"></i> linkedin.com/in/sivadinesh-r-a497042a5</a>
-            <a href="https://github.com/sivadinesh-07" target="_blank"><i class="fa-brands fa-square-github"></i> github.com/sivadinesh-07</a>
-            <a href="https://sivadinesh-portfolio-frontend.vercel.app/" target="_blank"><i class="fa-solid fa-circle-user"></i> sivadinesh-portfolio-frontend.vercel.app</a>
+            <a href="https://www.linkedin.com/in/sivadinesh-r-a497042a5/?isSelfProfile=true" target="_blank"><i
+                    class="fa-brands fa-square-linkedin"></i> linkedin.com/in/sivadinesh-r-a497042a5</a>
+            <a href="https://github.com/sivadinesh-07" target="_blank"><i class="fa-brands fa-square-github"></i>
+                github.com/sivadinesh-07</a>
+            <a href="https://sivadinesh-portfolio-frontend.vercel.app/" target="_blank"><i
+                    class="fa-solid fa-circle-user"></i> sivadinesh-portfolio-frontend.vercel.app</a>
         </div>
         <HR>
         </HR>
@@ -159,13 +361,13 @@
                 insights to a forward-thinking development team. </p>
         </div>
         <hr>
-         <div class="skills">
+        <div class="skills">
             <h2 class="he">Skills</h2>
             <table border="1">
                 <tr>
                     <th>Technical skills</th>
                     <td>Frontend Development, UIUX Designing, AWS cloud, Blender</td>
-                    
+
                 </tr>
                 <tr>
                     <th>Soft Skills</th>
@@ -175,107 +377,133 @@
                     <th> Programming Language</th>
                     <td>Java, Python, C</td>
                 </tr>
-                
+
             </table>
-        <hr>
+            <hr>
 
-        <div class="edu">
-            <h2 class="he">education</h2>
-            <div class="edu_clg">
-                <h3>SA Engineering College | 2023-2027 </h3>
-                <h4>Computer Science And Engineering | Chennai,Tamilnadu</h4>
-                <ul>
-                    <li>Academic Standing: CGPA: 8.64 / 10 (First Class with Distinction)</li>
-                    <li>Institutional Profile: Studied under an autonomous industry-aligned curriculum affiliated with
-                        Anna University; institution is accredited with an 'A' Grade by NAAC and approved by NBA and
-                        AICTE.</li>
-                    <li>Relevant Coursework: Data Structures and Algorithms, Database Management Systems (DBMS),
-                        Operating Systems, Object-Oriented Software Engineering, and Computer Networks.</li>
-                    <li> Core Projects & Electives: Focused elective track in Full-Stack Web Development and Cloud
-                        Computing, building and deploying scalable web architectures through rigorous, hands-on lab
-                        frameworks.</li>
-                </ul>
+            <div class="edu">
+                <h2 class="he">education</h2>
+                <div class="edu_clg">
+                    <h3>SA Engineering College | 2023-2027 </h3>
+                    <h4>Computer Science And Engineering | Chennai,Tamilnadu</h4>
+                    <ul>
+                        <li>Academic Standing: CGPA: 8.64 / 10 (First Class with Distinction)</li>
+                        <li>Institutional Profile: Studied under an autonomous industry-aligned curriculum affiliated
+                            with
+                            Anna University; institution is accredited with an 'A' Grade by NAAC and approved by NBA and
+                            AICTE.</li>
+                        <li>Relevant Coursework: Data Structures and Algorithms, Database Management Systems (DBMS),
+                            Operating Systems, Object-Oriented Software Engineering, and Computer Networks.</li>
+                        <li> Core Projects & Electives: Focused elective track in Full-Stack Web Development and Cloud
+                            Computing, building and deploying scalable web architectures through rigorous, hands-on lab
+                            frameworks.</li>
+                    </ul>
+                </div>
+                <div class="edu_clg">
+                    <h3>Dr Vimala convent | 2020-2023 </h3>
+                    <h4>Computer Science And Mathematics | Chennai,Tamilnadu</h4>
+                    <ul>
+                        <li>Academic Standing: PERCENTAGE: 85.16 / 100 (First Class with Distinction)</li>
+                        <li>Institutional Profile: Studied under an autonomous industry-aligned curriculum affiliated
+                            with
+                            Anna University; institution is accredited with an 'A' Grade by NAAC and approved by NBA and
+                            AICTE.</li>
+                        <li>Relevant Coursework: Data Structures and Algorithms, Database Management Systems (DBMS),
+                            Operating Systems, Object-Oriented Software Engineering, and Computer Networks.</li>
+                        <li> Core Projects & Electives: Focused elective track in Full-Stack Web Development and Cloud
+                            Computing, building and deploying scalable web architectures through rigorous, hands-on lab
+                            frameworks.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="edu_clg">
-                <h3>Dr Vimala convent | 2020-2023 </h3>
-                <h4>Computer Science And Mathematics | Chennai,Tamilnadu</h4>
-                <ul>
-                    <li>Academic Standing: PERCENTAGE: 85.16 / 100 (First Class with Distinction)</li>
-                    <li>Institutional Profile: Studied under an autonomous industry-aligned curriculum affiliated with
-                        Anna University; institution is accredited with an 'A' Grade by NAAC and approved by NBA and
-                        AICTE.</li>
-                    <li>Relevant Coursework: Data Structures and Algorithms, Database Management Systems (DBMS),
-                        Operating Systems, Object-Oriented Software Engineering, and Computer Networks.</li>
-                    <li> Core Projects & Electives: Focused elective track in Full-Stack Web Development and Cloud
-                        Computing, building and deploying scalable web architectures through rigorous, hands-on lab
-                        frameworks.</li>
-                </ul>
+            <hr>
+            <div class="work">
+                <h2 class="he">work experience</h2>
+                <div class="edu_clg">
+                    <h3>Webzenith Solutions | JAN 2025 - APR 2025 </h3>
+                    <h4>UI UX Designeer | Chennai,Tamilnadu</h4>
+                    <ul>
+                        <li>Architected and built accessible, mobile-first web pages for enterprise software solutions
+                            using
+                            HTML, CSS, JavaScript, and Bootstrap.</li>
+                        <li>Created extensive design blueprints, component systems, and wireframes in Figma to
+                            drastically
+                            decrease implementation timelines during the engineering cycle.</li>
+                        <li>Maintained and customized functional client websites on WordPress while prioritizing
+                            cross-browser scalability and quick load times.</li>
+                        <li><strong>projects:</strong> Focused elective track in Full-Stack Web Development and Cloud
+                            Computing, building and deploying scalable web architectures through rigorous, hands-on lab
+                            frameworks.</li>
+                    </ul>
+                </div>
+                <div class="edu_clg">
+                    <h3>Techno Hacks Solutions | JUN 2026 - JUL 2026 </h3>
+                    <h4>Fullstack Development | Chennai,Tamilnadu</h4>
+                    <ul>
+                        <li>Programmed responsive, cross-browser compatible landing pages and web apps using HTML, CSS,
+                            JavaScript, and Bootstrap.</li>
+                        <li>Designed pixel-perfect interface wireframes and interactive user journey prototypes inside
+                            Figma
+                            to define application visuals.</li>
+                        <li>Configured, styled, and updated landing pages using WordPress CMS environments to optimize
+                            user
+                            navigation flows.</li>
+                        <li> <strong>projects</strong> Focused elective track in Full-Stack Web Development and Cloud
+                            Computing, building and deploying scalable web architectures through rigorous, hands-on lab
+                            frameworks.</li>
+                    </ul>
+                </div>
+
+
             </div>
-        </div>
-        <hr>
-        <div class="work">
-            <h2 class="he">work experience</h2>
-            <div class="edu_clg">
-                <h3>Webzenith Solutions | JAN 2025 - APR 2025 </h3>
-                <h4>UI UX Designeer | Chennai,Tamilnadu</h4>
-                <ul>
-                    <li>Architected and built accessible, mobile-first web pages for enterprise software solutions using
-                        HTML, CSS, JavaScript, and Bootstrap.</li>
-                    <li>Created extensive design blueprints, component systems, and wireframes in Figma to drastically
-                        decrease implementation timelines during the engineering cycle.</li>
-                    <li>Maintained and customized functional client websites on WordPress while prioritizing
-                        cross-browser scalability and quick load times.</li>
-                    <li><strong>projects:</strong> Focused elective track in Full-Stack Web Development and Cloud
-                        Computing, building and deploying scalable web architectures through rigorous, hands-on lab
-                        frameworks.</li>
-                </ul>
-            </div>
-            <div class="edu_clg">
-                <h3>Techno Hacks Solutions | JUN 2026 - JUL 2026 </h3>
-                <h4>Fullstack Development | Chennai,Tamilnadu</h4>
-                <ul>
-                    <li>Programmed responsive, cross-browser compatible landing pages and web apps using HTML, CSS,
-                        JavaScript, and Bootstrap.</li>
-                    <li>Designed pixel-perfect interface wireframes and interactive user journey prototypes inside Figma
-                        to define application visuals.</li>
-                    <li>Configured, styled, and updated landing pages using WordPress CMS environments to optimize user
-                        navigation flows.</li>
-                    <li> <strong>projects</strong> Focused elective track in Full-Stack Web Development and Cloud
-                        Computing, building and deploying scalable web architectures through rigorous, hands-on lab
-                        frameworks.</li>
-                </ul>
+            <hr>
+            <div class="projects">
+                <h2 class="he">Projects</h2>
+                <div class="pro">
+                    <h3>Campus connect Hub | January 2025 </h3>
+                    <h4>description :</h4>
+                    <p style="text-align: justify;">Campus Connect Hub is a friendly, easy-to-use college website that
+                        brings campus news, events, and student notices together into one single dashboard. The project
+                        started in Figma, where I designed clean layouts and interactive prototypes to make sure
+                        students
+                        could find information quickly. I then built the actual website using HTML, CSS, and Bootstrap
+                        to
+                        ensure it looks perfect on both mobile phones and desktop computers. Finally, I used JavaScript
+                        to
+                        add smooth interactive features like instant search filters and pop-up notice boxes, making the
+                        platform feel highly responsive.</p>
+                </div>
+                <div class="pro">
+                    <h3>Disaster Relief coordination | January 2025 </h3>
+                    <h4>description :</h4>
+                    <p style="text-align: justify;">The Disaster Relief Coordination App is a helpful emergency website
+                        built to connect volunteers, victims, and rescue teams during natural disasters. Because people
+                        use this during emergencies, I used Figma to design a highly accessible, clear, and
+                        high-contrast layout that is easy to read. I built the structure using HTML, CSS, and Bootstrap
+                        so the app loads quickly and works perfectly on any field device, from cheap smartphones to
+                        tablets. Using JavaScript, I created fast, lightweight features like instant aid request forms
+                        and live status filters that work smoothly even on slow internet connections.</p>
+                </div>
+                <div class="pro">
+                    <h3>Harness fashion ecommerce | January 2025 </h3>
+                    <h4>description :</h4>
+                    <p style="text-align: justify;">Harness Fashion Website UI is a beautiful, modern online shopping
+                        store designed to display clothing collections with a clean and luxury feel. I began by creating
+                        pixel-perfect visuals and easy-to-navigate user screens inside Figma. After locking in the
+                        design, I translated it into clean web code using HTML, CSS, and Bootstrap, making sure the
+                        clothing catalogs and image galleries adjust smoothly to fit any screen size. I also integrated
+                        JavaScript to handle engaging shopping features like interactive product filters, hover zoom
+                        effects, and smooth image sliders.</p>
+                </div>
             </div>
 
 
         </div>
-        <hr>
-        <div class="projects">
-            <h2 class="he">Projects</h2>
-            <div class="pro">
-                <h3>Campus connect Hub | January 2025 </h3>
-                <h4>description :</h4>
-                <p style="text-align: justify;">Campus Connect Hub is a friendly, easy-to-use college website that
-                    brings campus news, events, and student notices together into one single dashboard. The project
-                    started in Figma, where I designed clean layouts and interactive prototypes to make sure students
-                    could find information quickly. I then built the actual website using HTML, CSS, and Bootstrap to
-                    ensure it looks perfect on both mobile phones and desktop computers. Finally, I used JavaScript to
-                    add smooth interactive features like instant search filters and pop-up notice boxes, making the
-                    platform feel highly responsive.</p>
-            </div>
-            <div class="pro">
-                <h3>Disaster Relief coordination | January 2025 </h3>
-                <h4>description :</h4>
-                <p style="text-align: justify;">The Disaster Relief Coordination App is a helpful emergency website built to connect volunteers, victims, and rescue teams during natural disasters. Because people use this during emergencies, I used Figma to design a highly accessible, clear, and high-contrast layout that is easy to read. I built the structure using HTML, CSS, and Bootstrap so the app loads quickly and works perfectly on any field device, from cheap smartphones to tablets. Using JavaScript, I created fast, lightweight features like instant aid request forms and live status filters that work smoothly even on slow internet connections.</p>
-            </div>
-            <div class="pro">
-                <h3>Harness fashion ecommerce | January 2025 </h3>
-                <h4>description :</h4>
-                <p style="text-align: justify;">Harness Fashion Website UI is a beautiful, modern online shopping store designed to display clothing collections with a clean and luxury feel. I began by creating pixel-perfect visuals and easy-to-navigate user screens inside Figma. After locking in the design, I translated it into clean web code using HTML, CSS, and Bootstrap, making sure the clothing catalogs and image galleries adjust smoothly to fit any screen size. I also integrated JavaScript to handle engaging shopping features like interactive product filters, hover zoom effects, and smooth image sliders.</p>
-            </div>
         </div>
-        
-       
     </div>
+    <script src="script.js">
+
+    </script>
 
 
 </body>
